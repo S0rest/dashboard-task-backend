@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		lombokVersion = '1.18.28'
+		openApiVersion = '2.5.0'
+		jakartaValidationVersion = '3.0.2'
+	}
+}
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.dashboard'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(20)
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+
+	// lombok
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+	// Open api
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openApiVersion}"
+
+	// Validation api
+	implementation "jakarta.validation:jakarta.validation-api:${jakartaValidationVersion}"
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
