@@ -2,7 +2,6 @@ buildscript {
 	ext {
 		lombokVersion = '1.18.28'
 		openApiVersion = '2.5.0'
-		jakartaValidationVersion = '3.0.2'
 	}
 }
 
@@ -34,9 +33,6 @@ dependencies {
 
 	// Open api
 	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openApiVersion}"
-
-	// Validation api
-	implementation "jakarta.validation:jakarta.validation-api:${jakartaValidationVersion}"
 
 	// Spring
 	implementation 'org.springframework.boot:spring-boot-starter-web'
