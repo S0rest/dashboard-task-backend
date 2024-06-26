@@ -5,7 +5,7 @@ import com.dashboard.task.backend.metrics.data.AdMockData;
 import java.util.List;
 
 public interface MetricsService {
-    List<AdMockData> getAllMetrics();
+    List<AdMockData> getAllMetrics(String search);
 
     AdMockData getMetric(int id);
 }
